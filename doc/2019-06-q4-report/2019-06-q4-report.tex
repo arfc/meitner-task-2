@@ -538,12 +538,14 @@ The SaltProc v2.0+ modeling and simulation tool is demonstrated
 for \gls{TAP} \gls{MSR} with static core geometry, \gls{LEU} 5\% 
 startup composition 
 \cite{transatomic_power_corporation_neutronics_2016} and following 
-fueling scenarios: (1) a 5\% \gls{LEU} online feed; (2) a 19.79\% 
-\gls{LEU} online feed \cite{betzler_assessment_2017}. 
+fueling scenarios: (1) no \glspl{FP} removal and feed (Serpent only);
+(2) a 5\% \gls{LEU} online feed; (3) a 19.79\% 
+\gls{LEU} online feed. 
 The primary focus and the bulk of the analysis 
-herein has been on the first fueling scenario using near-term 
-deployable 19.79\% \gls{LEU}. All calculations are run with 
-Serpent version 2.1.31 with the JEFF-3.1.2 nuclear data library \cite{leppanen_serpent_2013, oecd/nea_data_bank_jeff-3.1.2_2014}.
+herein has been on the last fueling scenario using 
+19.79\% \gls{LEU}. All calculations are run with 
+Serpent version 2.1.31 and the JEFF-3.1.2 nuclear data library 
+\cite{leppanen_serpent_2013, oecd/nea_data_bank_jeff-3.1.2_2014}.
 
 \subsection{Serpent 2 full-core model} \label{sec:tap_model}
 Advanced geometry surfaces and transformation capabilities of Serpent \cite{leppanen_serpent_2013} are employed 
@@ -567,8 +569,6 @@ SVF &= \frac{V_F}{V_F+V_M} = \frac{1}{1+V_M/V_F}
 The \gls{SVF} for model herein is 0.907268 which means the modeled core is 
 under-moderated and has intermediate spectrum.
 
-
-
 To represent reactivity control system the 
 model has: (1) control rod guide tubes made of nickel-based alloy; (2) control rods represented as hollow 70-30\% Gd$_2$O$_3$-Al$_2$O$_3$ cylinders with a thin 
 Hastelloy-N coating \cite{betzler_assessment_2017}; (3) air inside guide tubes and 
@@ -581,8 +581,6 @@ Herein we assumed that all control rods are fully-withdrawn from the core
 (figure\ref{fig:tap-serpent-elev-zoom}) but for future investigation control 
 rods position may vary. In this report, all figures of the core were 
 generated using the built-in Serpent plotter.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[h!]
         \caption{Geometric parameters for the full-core 3D model of 
@@ -643,7 +641,7 @@ We thoroughly analyzed the original \gls{TAP} reprocessing system design
 scheme for SaltProc v2.0+ demonstration (figure~\ref{fig:demo-repro-scheme}).
 \begin{figure}[htp!] % replace 't' with 'b' to 
   \centering
-		  \includegraphics[width=0.9\textwidth]{demo_reprocessing_scheme.png}
+		  \includegraphics[width=0.93\textwidth]{demo_reprocessing_scheme.png}
   \caption{\gls{TAP} reprocessing scheme flowchart used for SaltProc v2.0+ 
   demonstration. Arrows represent material flows; percents - fraction of total 
   mass flow rate throughout the core; ellipses - fuel reprocessing system 
@@ -690,37 +688,74 @@ uncertainty for a transport problem (25 pcm for effective multiplication factor)
 and computational time. We accomplished it by setup neutron population 15'000, 
 the number of active cycle 400, and the number of inactive cycle 200. 
 The \gls{TAP} depletion were performed on 64 Blue Waters 
-XK7 nodes (two AMD 6276 Interlagos CPU per node, 16 floating-point Bulldozer 
+XE6 nodes (two AMD 6276 Interlagos CPU per node, 16 floating-point Bulldozer 
 core units per node or 32 ``integer'' cores per node, nominal clock speed is 
 2.45 GHz). The total computational time for calculating the equilibrium 
 composition was approximately 6000 node-hours (11 core-years).
 
-Figures~\ref{fig:keff} and \ref{fig:keff-zoomed} demonstrate the effective 
+\subsection{Effective multiplication factor}
+Figures~\ref{fig:keff}, \ref{fig:keff-zoomed}, \ref{fig:keff-zoomed-2} demonstrate 
+the effective 
 multiplication factors  obtained using SaltProc v2.0+ and Serpent. We obtained 
 the effective multiplication factors after removing fission products 
 (table~\ref{tab:reprocessing_list} and adding feed material at the end of each 
 depletion step (3 days for this work). The $k_{eff}$ fluctuates significantly as a result of the batch-wise nature of used online reprocessing strategy.
-
-Loading initial fuel salt composition with 5\% \gls{LEU} into the \gls{TAP} 
-core leads to a supercritical configuration with excess of reactivity about 
-1900pcm (figure~\ref{fig:keff}).
-
-
 \begin{figure}[htp!] % replace 't' with 'b' to 
-  \centering
-		  \includegraphics[width=1.05\textwidth]{keff.png}
+		  \includegraphics[width=1.05\textwidth]{keff_3.png}
+	\vspace{-0.5in}
   \caption{Effective multiplication factor dynamics for full-core
-   \gls{TAP} model over a 13-year reactor operation. Confidence interval 
-   $\pm\sigma=28pcm$ is shaded.}
+   \gls{TAP} model for different fueling scenarios over a 13-year reactor operation. 
+   Confidence interval $\pm\sigma=28pcm$ is shaded. Clearly, the reactor went 
+   subcritical too fast and further investigation needed to overcome this issue. 
+   Possible solutions are include: (1) higher enrichment of initial fuel composition to 
+   obtain multiplication factor at the \gls{BOL} about 1.035 (see \gls{ORNL} report 
+   \cite{betzler_assessment_2017}); (2) extracting poisons with faster removal rate;
+   (3) use another fissile material for the feed (i.e., \gls{TRU} elements from spent 
+   \gls{LWR} fuel); (4) adjusting \gls{SVF} on-the-fly by 
+   moving moderator assemblies during operation 
+   \cite{transatomic_power_corporation_technical_2016} or adding moderator rods 
+   only at regular intervals during shutdown for reactor maintenance  \cite{betzler_fuel_2018}.}
   \label{fig:keff}
 \end{figure}
 \begin{figure}[htp!] % replace 't' with 'b' to 
   \centering
-		  \includegraphics[width=\textwidth]{keff_zoomed.png}
-  \caption{Zoomed effective multiplication factor for 93-EFPD time interval. 
-	Confidence interval $\pm\sigma=28pcm$ is shaded.}
+		  \includegraphics[width=0.8\textwidth]{keff_zoomed_1.png}
+	  \vspace{-0.4in}
+  \caption{Zoomed effective multiplication factor for the first 104 EFPD 
+  after startup.}
   \label{fig:keff-zoomed}
 \end{figure}
+\begin{figure}[htp!] % replace 't' with 'b' to 
+  \centering
+		  \includegraphics[width=0.8\textwidth]{keff_zoomed_2.png}
+	 \vspace{-0.4in}
+  \caption{Zoomed effective multiplication factor for the time interval 
+  from 367 to 471 EFPD after startup.}
+  \label{fig:keff-zoomed-2}
+\end{figure}
+
+Loading initial fuel salt composition with 5\% \gls{LEU} into the \gls{TAP} 
+core leads to a supercritical configuration with excess of reactivity about 
+1900pcm (figure~\ref{fig:keff}). Without performing any fuel salt reprocessing 
+the core became subcritical after 30 days of operation (figure~\ref{fig:keff-zoomed}). 
+We obtained this result using naked Serpent without introducing any \gls{FP} extraction 
+and refueling. For the beginning of the \gls{TAP} lifetime uranium enrichment in the 
+feed has minor effect because tiny amount of poisons was produced (<1kg/day) and, 
+hence, small mass of fresh salt was injected. Notably, the core went subcritical after 
+42 days of operation either with \gls{LEU} 5\% or \gls{LEU} 19.79\% feed.
+
+The \gls{TAP} core would never reach equilibrium fuel salt composition without 
+performing fuel salt reprocessing and refueling. For the fueling scenarios with 
+5\% and 19.79\% \gls{LEU} feed the reactor achieved the equilibrium state after 
+?? and 10 years of operation, respectively. Overall, the effective multiplication 
+factor gradually decrease from initial 1.018 to $\approx$ 0.88 for the 19.79\% 
+\gls{LEU} feed and to ?? for the 5\% \gls{LEU} feed, which clearly indicates 
+problems with operating this nuclear reactor design. We will try to overcome 
+this issue by re-optimizing the \gls{TAP} core and design parameters as well as 
+adding new functionality to SaltProc v2.0+.
+
+\subsection{Neutron spectrum}
+
 
 
 \bibliographystyle{ieeetr}
