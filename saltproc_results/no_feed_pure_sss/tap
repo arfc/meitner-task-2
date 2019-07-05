@@ -1,0 +1,44 @@
+include "/u/sciteam/rykhlevs/meitner/mat_comp/saltproc_prepr_comp.ini"
+
+include "/u/sciteam/rykhlevs/meitner/mat_comp/non_burnable_mats.ini"
+include "/u/sciteam/rykhlevs/meitner/geometry/core_cr_withdr.ini"
+
+set title "TAP MSR test no reprocessing 4941 days"
+
+%therm zrh_h 900 hzr05.32t hzr06.32t   % 900K H-Zr
+%set acelib "/projects/sciteam/bahg/serpent/xsdata/jeff312/sss_jeff312.xsdata"
+%set declib "/projects/sciteam/bahg/serpent/xsdata/jeff312/sss_jeff33.dec"
+%set nfylib "/projects/sciteam/bahg/serpent/xsdata/jeff312/sss_jeff33.nfy"
+%set sfylib "/projects/sciteam/bahg/serpent/xsdata/jeff312/sss_jeff33.sfy"
+
+set acelib "sss_jeff312.xsdata"
+set declib "sss_jeff33.dec"
+set nfylib "sss_jeff33.nfy"
+set sfylib "sss_jeff33.sfy"
+% --- Neutron population and criticality cycles:
+
+set pop 15000 400 220
+%set gcu -1
+% --- Depletion parameters
+% --- Options for burnup calculation:
+set bumode  2  % CRAM method
+set pcc     1  % Predictor-corrector calculation on
+%set xscalc  2  % Cross sections from spectrum
+%set bunorm 2
+%set opti 3
+
+set power 1.250E+09
+dep daytot 
+3 6 9 12 15 18 21 24 27 30 40 50 60 70 80 90 100 110 140 170 200 230 260 290
+310 340 370 400 430 460 490 520 550 580 610 640 670 700 730 760 790 820 850
+880 910 940 970 1000 1100 1200 1300 1400 1500 1600 1700 1800 1900 2000 2100
+2200 2300 2400 2500 2600 2700 2800 2900 3000 3100 3200 3300 3400 3500 3600
+3700 3800 3900 4000 4100 4200 4300 4400 4500 4600 4700 4800 4900 4941 
+
+%set printm 1 0.0
+
+set inventory all
+
+set rfw 1 restart
+%set rfr idx 321 restart
+%set seed 46549345296
