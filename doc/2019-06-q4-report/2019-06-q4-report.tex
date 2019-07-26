@@ -184,10 +184,11 @@ be coupled with Serpent 2 where Monte Carlo results will be done to <10\% relati
 \end{enumerate}
 
 \section{The TRANSATOMIC POWER Molten Salt Reactor concept}
-The \gls{TAP} concept is a 1250 MW$_{th}$ \gls{MSR} with a LiF-based uranium fuel 
-salt \cite{transatomic_power_corporation_technical_2016}. This concept uses 
-configurable zirconium hydride rods as the moderator while most \gls{MSR} designs 
-usually propose high-density reactor graphite. Zirconium hydride offers a much 
+The \gls{TAP} concept is a 1250 MW$_{th}$ \gls{MSR} with a LiF-based uranium 
+fuel salt \cite{transatomic_power_corporation_technical_2016}. This concept 
+uses configurable zirconium hydride rods as the moderator while most \gls{MSR} 
+designs usually propose high-density reactor graphite. Zirconium hydride 
+offers a much 
 higher neutron moderating density than graphite; much less zirconium hydride 
 volume is needed to achieve a thermal energy spectrum similar to one obtained 
 with graphite moderator. Moreover, zirconium hydride has a much 
@@ -230,15 +231,14 @@ commercially available 5\% \gls{LEU} fuel cycle.
   \label{fig:tap-main-view}
 \end{figure}
 
-The \gls{TAP} \gls{MSR} primary loop contains the reactor core volume (including 
-the zirconium hydride moderator rods with silicone carbide cladding), pumps, and 
-primary heat exchanger. Pumps circulate the LiF-(Act)F$_4$ 
-fuel salt through the primary loop. The pumps, vessels, tanks, and piping are 
-made of a nickel-based alloy (similar to Hastelloy-N\footnote{ Hastelloy-N is 
-very common in reactors now but have been studied and developed at \gls{ORNL} in 
-a program that started in 1950s.}), which is highly resistant to corrosion in 
-various molten 
-salt environments. 
+The \gls{TAP} \gls{MSR} primary loop contains the reactor core volume 
+(including the zirconium hydride moderator rods with silicone carbide 
+cladding), pumps, and primary heat exchanger. Pumps circulate the 
+LiF-(Act)F$_4$ fuel salt through the primary loop. The pumps, vessels, tanks, 
+and piping are made of a nickel-based alloy (similar to Hastelloy-N\footnote{ 
+Hastelloy-N is very common in reactors now but have been studied and developed 
+at \gls{ORNL} in a program that started in 1950s.}), which is highly resistant 
+to corrosion in various molten salt environments. 
 Inside the reactor vessel, in close proximity to the zirconium hydride moderator 
 rods, the fuel salt is in a critical configuration and generates heat. 
 Table~\ref{tab:tap_tab} contains details of the \gls{TAP} system 
@@ -376,7 +376,10 @@ SaltProc v2.0+  demonstration case without any modifications.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[ht!]
         \centering
-        \caption{The effective cycle times for fission products removal (reproduced from \cite{betzler_implementation_2017} and \cite{transatomic_power_corporation_neutronics_2016}).}
+        \caption{The effective cycle times for fission products removal from 
+        the \gls{TAP} \gls{MSR} (reproduced from 
+        \cite{betzler_implementation_2017} and 
+        \cite{transatomic_power_corporation_neutronics_2016}).}
         \begin{tabular}{p{0.2\textwidth} p{0.42\textwidth} p{0.12\textwidth} p{0.16\textwidth}}
         \hline 
         %\begin{tabularx}{\linewidth}{l X} \toprule 
@@ -585,17 +588,18 @@ Serpent version 2.1.31 and the JEFF-3.1.2 nuclear data library
 \cite{leppanen_serpent_2013, oecd/nea_data_bank_jeff-3.1.2_2014}.
 
 \subsection{Serpent 2 full-core model} \label{sec:tap_model}
-Advanced geometry surfaces and transformation capabilities of Serpent \cite{leppanen_serpent_2013} are employed 
-to represent \gls{TAP} core. 
+Advanced geometry surfaces and transformation capabilities of Serpent 
+\cite{leppanen_serpent_2013} are employed to represent \gls{TAP} core. 
 Figure~\ref{fig:tap-serpent-plan} shows the $XY$ section of whole-core
 configuration at the expected reactor operational level when all
-control rods are fully withdrawn. Figures~\ref{fig:tap-serpent-elev} and ~\ref{fig:tap-serpent-elev-zoom} show a 
-longitudinal section of the reactor. This model contains the moderator rods with 
-silicon carbide cladding, pressure vessel, and inlet and outlet plena 
-(Table~\ref{tab:tap_model_param}). Fuel salt flows around rectangular 
-moderator assemblies consisting of lattices of small-diameter zirconium hydride 
-rods in a corrosion-resistant material. The \gls{SVF} in the core is parameter 
-similar to wide-used moderator-to-fuel ratio and can be defined as:
+control rods are fully withdrawn. Figures~\ref{fig:tap-serpent-elev} and 
+~\ref{fig:tap-serpent-elev-zoom} show a longitudinal section of the reactor. 
+This model contains the moderator rods with silicon carbide cladding, pressure 
+vessel, and inlet and outlet plena (Table~\ref{tab:tap_model_param}). Fuel 
+salt flows around rectangular moderator assemblies consisting of lattices of 
+small-diameter zirconium hydride rods in a corrosion-resistant material. The 
+\gls{SVF} in the core is parameter similar to wide-used moderator-to-fuel 
+ratio and can be defined as:
 \begin{align}
 SVF &= \frac{V_F}{V_F+V_M} = \frac{1}{1+V_M/V_F}
 	\intertext{where}
@@ -826,7 +830,7 @@ harder than in a typical \gls{LWR} and is in a good agreement with
   for initial and equilibrium fuel salt composition.}
   \label{fig:spectrum}
 \end{figure}
-\section{Fuel salt composition}
+\subsection{Fuel salt composition}
 Figure~\ref{fig:u-pu} shows the absolute mass of major heavy isotopes 
 which have a strong influence on the reactor core physics. The mass of 
 $^{236}$U, $^{238}$U, $^{239}$Pu, $^{240}$Pu, and $^{241}$Pu in the 
@@ -888,7 +892,7 @@ for \gls{BOL} about 1.035 which is much greater than our result
 ($1.01909\pm23pcm$). We will reduce fast neutron leakage by adding an appropriate 
 reflector and thermal insulation around the vessel to get a larger excess of 
 reactivity at the \gls{BOL}.
-\paragraph{Dynamic moderator-to-volume fraction:} The \gls{TAP} major feature is 
+\paragraph{Dynamic moderator-to-fuel ratio:} The \gls{TAP} major feature is 
 the ability to adjust moderator-to-volume, or \gls{SVF}, ratio during lifetime 
 by changing moderator rods configuration. Adding more moderator in the core 
 thermalizes neutron spectrum and significantly extends the core lifetime. 
