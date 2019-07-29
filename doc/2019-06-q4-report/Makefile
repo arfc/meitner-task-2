@@ -1,4 +1,4 @@
-manuscript = 2019-05-i2cner-report
+manuscript = 2019-06-q4-report
 references = $(wildcard *.bib)
 latexopt   = -shell-escape -halt-on-error -file-line-error
 
