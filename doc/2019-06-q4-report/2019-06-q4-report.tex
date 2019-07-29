@@ -67,8 +67,8 @@
         \includegraphics[width=\textwidth]{arfc-logo}
         \end{minipage}%
         \begin{minipage}{0.6\textwidth}
-        {\begin{flushright}\huge\bfseries Milestone 2.1  Enabling Load Following Capability in the Transatomic Power MSR \end{flushright}}
-        {\begin{flushright}\large\textit{Modeling-Enhanced Innovations Trailblazing Nuclear Energy Reinvigoration (MEITNER) DE-FOA-0001798 \\ Task 2 Milestone Report}\end{flushright}}
+        {\begin{flushright}\huge\bfseries Milestone 2.1 Report: Demonstration of SaltProc\end{flushright}}
+        {\begin{flushright}\large\textit{Enabling Load Following Capability in the Transatomic Power MSR}\end{flushright}}
 
         \end{minipage}
 
@@ -104,7 +104,7 @@
     %    Report Number
     %------------------------------------------------
     \vspace{1cm}
-    \textsc{\LARGE\bfseries UIUC-ARFC-2019-012} % Replace YYYY with the year, NN with report index
+    \textsc{\LARGE\bfseries UIUC-ARFC-2019-04} % Replace YYYY with the year, NN with report index
     \vspace{0.5cm}
     
     %------------------------------------------------
@@ -112,7 +112,7 @@
     %------------------------------------------------
     
     \vspace{0.5cm} % Position the date further down the remaining page
-    {\large\today} % Date, change the \today to a set date if you want to be precise
+    {\large June 28, 2019} % Date, change the \today to a set date if you want to be precise
     \vspace{0.5cm}
 
 %------------------------------------------------
@@ -138,7 +138,9 @@
     % For this section, either use \vfill to fill the space 
     % or insert funding acknowledgement
     \textit{This research is being performed using funding received from the 
-    Department of Energy ARPA-E MEITNER Program (award DE-AR0000983).}
+    Department of Energy Advanced Research Projects Agency - Energy 
+    Modeling-Enhanced Innovations Trailblazing Nuclear Energy Reinvigoration 
+    (DOE ARPA-E MEITNER) Program (award DE-AR0000983).}
 
 \end{titlepage}
 
@@ -148,22 +150,28 @@ realistically model the online reprocessing system of the \gls{TAP}
 \gls{MSR}. A Python toolkit, SaltProc v1 \cite{rykhlevskii_modeling_2019,
 rykhlevskii_advanced_2018, rykhlevskii_arfc/saltproc_2018}, was developed to 
 represent the simplified online fuel salt processing of a \gls{MSBR}.
-More recently, an advanced SaltProc version (SaltProc v2.0+) was developed 
+More recently, an advanced SaltProc version (SaltProc v0.2.0+) was developed 
 to simulate the complex salt reprocessing system of the \gls{TAP}, 
 incorporating user-parametrized components into the fuel salt processing 
 design. This report summarizes the progress we have made towards milestone 
-\textbf{M2.1: Demonstration SaltProc}, the challenges we currently face, and 
-the steps towards ultimate Task 2 objectives.
+\textbf{M2.1: Demonstrate SaltProc}, the challenges we currently face, and 
+the steps toward the Task 2 objectives.
 
 \section{Milestone objectives}
 ARPA-E Award No. DE-AR0000983 with the Board of Trustees of the University of Illinois Attachment 3 (Technical Milestones and Deliverables) section D (Description of 
-technical tasks, milestones, and deliverables) formulated M2.1 goal as follows: \\
+technical tasks, milestones, and deliverables) formulated the goal of Milestone 2.1 as follows: 
+
+\begin{quote}
 ``Initial demonstration of fuel cycle simulation package working together with 
 Monte Carlo to complete full core TAP reactor depletion calculation. SaltProc 
 will use separations efficiencies and dynamics based on work in Task 1 and will 
 be coupled with Serpent 2 where Monte Carlo results will be done to <10\% 
-relative error accuracy.'' \\ Herein we demonstrated the following 
-capabilities of SaltProc v2.0+:
+relative error accuracy.''
+\end{quote}
+        
+        
+        Herein we demonstrated the following 
+capabilities of SaltProc v0.2.0+:
 \begin{enumerate}
 	\item Read a user-defined Serpent 2 input template file with the model geometry, 
 	material composition, total heating power, and boundary conditions.
@@ -174,7 +182,7 @@ capabilities of SaltProc v2.0+:
 	database \cite{the_hdf_group_hierarchical_1997}.
 	\item Remove poisons from the fuel's isotopic composition by passing 
 	information	through the user-parametrized components of the fuel salt 
-	processing system. For demonstration proposes, SaltProc v2.0+ used 
+	processing system. For demonstration proposes, SaltProc v0.2.0+ used 
 	user-defined constant 	separation efficiencies but can handle variable 
 	efficiencies defined in Task 1.
 	\item Replace fuel salt mass lost in the primary loop due to poisons 
@@ -373,7 +381,7 @@ The \gls{TAP} project reported a detailed list of elements for removal and
 removal efficiencies (Table~\ref{tab:reprocessing_list}). We used data from 
 \gls{TAP} neutronics 
 whitepaper\cite{transatomic_power_corporation_neutronics_2016} for the 
-SaltProc v2.0+  demonstration case without any modifications.
+SaltProc v0.2.0+  demonstration case without any modifications.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[ht!]
         \centering
@@ -407,7 +415,7 @@ SaltProc v2.0+  demonstration case without any modifications.
           \vspace{-0.9em}
 \end{table}
 
-We simulated \gls{TAP} \gls{MSR} depletion in SaltProc v2.0+ using  
+We simulated \gls{TAP} \gls{MSR} depletion in SaltProc v0.2.0+ using  
 reprocessing cycle times from Table~\ref{tab:reprocessing_list}. The online 
 reprocessing system design details, and a full-core reactor Serpent model 
 (section~\ref{sec:tap_model}) to capture the dynamics of fuel composition 
@@ -449,19 +457,19 @@ comprehensive tool to realistically model any \gls{MSR} reprocessing plant
 while taking into account non-ideal or variable extraction efficiencies and 
 mass balance between the core and processing plant.
 
-\subsection{SaltProc v2.0+ architecture}
-The SaltProc v2.0+ Python toolkit coupled directly with the Serpent 2 input 
+\subsection{SaltProc v0.2.0+ architecture}
+The SaltProc v0.2.0+ Python toolkit coupled directly with the Serpent 2 input 
 and output files, to allow the reprocessing system couples to depletion 
 calculation. Existing PyNE interfaces are employed to parsing Serpent output  
 while newly developed interfaces handle input. The standard \gls{OOP} features 
 of Python 3 are used to create a flexible, user-friendly tool with increased  
 potential for further improvement and collaboration.  
-Figure~\ref{fig:saltproc_class} illustrates the SaltProc v2.0+ class 
+Figure~\ref{fig:saltproc_class} illustrates the SaltProc v0.2.0+ class 
 structure, consisting of 4 main classes:
 \begin{figure}[ht!] % replace 't' with 'b' to \centering
   \includegraphics[width=1.07\textwidth]{saltproc_class_diagram.png}
   	  	\vspace{-0.35in}
-  \caption{SaltProc v2.0+ python package class diagram in UML notation with  
+  \caption{SaltProc v0.2.0+ python package class diagram in UML notation with  
   examples of object instances.}
   \label{fig:saltproc_class}
 \end{figure}
@@ -508,14 +516,14 @@ user will also be able to create custom objects with desired attributes and
 methods as well as contribute them back to the code package using GitHub 
 (https://github.com/ arfc/saltproc).	
 
-\subsection{SaltProc v2.0+ flowchart}
+\subsection{SaltProc v0.2.0+ flowchart}
 Figure~\ref{fig:saltproc_flow} illustrates the online reprocessing simulation 
-algorithm, coupling Serpent with SaltProc v2.0+. To perform a depletion step, 
-SaltProc v2.0+ reads a user-defined Serpent template file. The template  
+algorithm, coupling Serpent with SaltProc v0.2.0+. To perform a depletion step, 
+SaltProc v0.2.0+ reads a user-defined Serpent template file. The template  
 contains input parameters such as geometry, material, isotopic composition, 
 neutron population, criticality cycles, total heating power, and boundary 
-conditions. SaltProc v2.0+ fills in the template file and runs the Serpent 
-single-step depletion. After the depletion calculation, SaltProc v2.0+ reads 
+conditions. SaltProc v0.2.0+ fills in the template file and runs the Serpent 
+single-step depletion. After the depletion calculation, SaltProc v0.2.0+ reads 
 the depleted fuel composition file into the \textit{MaterialFlow} object 
 (\textit{core\textunderscore outlet} in Figure~\ref{fig:saltproc_flow}). This 
 \textit{MaterialFlow} object contains an isotopic composition vector, total 
@@ -529,14 +537,14 @@ specified extraction efficiency. Afterward, the removed material mass is
 replenished by fresh fuel salt to maintain the salt inventory in a primary 
 loop. Finally, the resulting isotopic composition after reprocessing is stored 
 in the HDF5 database and dumped in a new composition file for the next 
-Serpent depletion run. SaltProc v2.0+ also stores isotopic composition before 
+Serpent depletion run. SaltProc v0.2.0+ also stores isotopic composition before 
 reprocessing and waste stream from each fuel processing component in a 
 database. 
 \begin{figure}[ht!] % replace 't' with 'b' to \centering
 	\centering
   \includegraphics[width=1.03\textwidth]{saltproc_flowchart.pdf}
   	  	\vspace{-0.35in}
-  \caption{SaltProc v2.0+ python package flow chart.}
+  \caption{SaltProc v0.2.0+ python package flow chart.}
   \label{fig:saltproc_flow}
 \end{figure}
 
@@ -560,18 +568,18 @@ SaltProc stores and edits the isotopic composition of the fuel stream, making
 it a flexible tool to model any geometry: an infinite medium, a unit cell, a 
 multi-zone simplified assembly, or a full core. This flexibility allows the 
 user to perform simulations of varying fidelity and computational 
-intensity. SaltProc v2.0+ is an open-source tool (though having Serpent 
-installed is required to use SaltProc v2.0+) available on GitHub. It leverages 
+intensity. SaltProc v0.2.0+ is an open-source tool (though having Serpent 
+installed is required to use SaltProc v0.2.0+) available on GitHub. It leverages 
 unit and continuous tests crucial for sustainable development 
 \cite{krekel_pytest_2004}. It will also have documentation generated through 
 Sphinx, a documentation generator, for ease of use \cite{brandl_sphinx_2009}. 
-In summary, the development of SaltProc v2.0+ is focused on producing a 
+In summary, the development of SaltProc v0.2.0+ is focused on producing a 
 generic, flexible and expandable tool to give the Serpent 2 Monte Carlo code 
 the ability to conduct advanced in-reactor fuel cycle analysis as well as 
 simulate many online refueling and fuel reprocessing systems.
 
 \section{SaltProc demonstration case}
-The SaltProc v2.0+ modeling and simulation tool is demonstrated for the 
+The SaltProc v0.2.0+ modeling and simulation tool is demonstrated for the 
 \gls{TAP} \gls{MSR} with static core geometry, \gls{LEU} 5\% startup 
 composition  \cite{transatomic_power_corporation_neutronics_2016} and the 
 three following fueling scenarios: (1) no \gls{FP} removal or feed (Serpent 
@@ -673,12 +681,12 @@ plotter.
 We thoroughly analyzed the original \gls{TAP} reprocessing system design 
 (figure~\ref{fig:tap-reproc}) and neutron poisons removal rates 
 (table~\ref{tab:reprocessing_list}) to determine a suitable reprocessing 
-scheme for the SaltProc v2.0+ demonstration 
+scheme for the SaltProc v0.2.0+ demonstration 
 (figure~\ref{fig:demo-repro-scheme}).
 \begin{figure}[htp!] % replace 't' with 'b' to 
   \centering
 		  \includegraphics[width=0.93\textwidth]{demo_reprocessing_scheme.png}
-  \caption{\gls{TAP} reprocessing scheme flowchart used for SaltProc v2.0+ 
+  \caption{\gls{TAP} reprocessing scheme flowchart used for SaltProc v0.2.0+ 
   demonstration. Arrows represent material flows; percents - fraction of total 
   mass flow rate; ellipses - fuel reprocessing system 
   components; diamonds - waste streams; the box shows refuel material flow.}
@@ -699,7 +707,7 @@ The nickel filter in the \gls{TAP} concept is designed to extract noble metals
 and volatile fluorides. Similarly to volatile gases, noble metals must be 
 removed every 20 sec and, hence, the filter should also be able to operate 
 in-line. The nickel filter removes a wide range of elements with various 
-efficiencies. We calculated these efficiencies for SalProc v2.0+ input 
+efficiencies. We calculated these efficiencies for SalProc v0.2.0+ input 
 from removal rates reported in table~\ref{tab:reprocessing_list}.
 
 Lanthanides and other non-noble metals generally have a lower capture 
@@ -724,7 +732,7 @@ based on Betzler \emph{et al.} timestep refinement study
 simulations, 30-day timestep size will be applied.
 
 \section{Results}
-The SaltProc v2.0+ online reprocessing simulation package is demonstrated for 
+The SaltProc v0.2.0+ online reprocessing simulation package is demonstrated for 
 analyzing \gls{TAP} \gls{MSR} neutronics and fuel cycle to find the equilibrium core composition and core depletion. The neutron population per cycle and the number 
 of active/inactive cycles were chosen to obtain a balance between reasonable 
 uncertainty for a transport problem (25 pcm for effective multiplication factor) 
@@ -739,7 +747,7 @@ composition was approximately 9000 node-hours ($\approx$16 core-years).
 \subsection{Effective multiplication factor}
 Figures~\ref{fig:keff}, \ref{fig:keff-zoomed}, \ref{fig:keff-zoomed-2} demonstrate 
 the effective 
-multiplication factors  obtained using SaltProc v2.0+ and Serpent. We obtained 
+multiplication factors  obtained using SaltProc v0.2.0+ and Serpent. We obtained 
 the effective multiplication factors after removing fission products 
 and adding feed material at the end of each depletion step (3 days for this 
 work). The $k_{eff}$ fluctuates significantly as a result of the batch-wise 
@@ -799,7 +807,7 @@ factor gradually decreases from the initial 1.018 to 0.88 for the 19.79\%
 \gls{LEU} feed and 0.86 for the 5\% \gls{LEU} feed, which indicates 
 problems with operating this nuclear reactor design. We will try to overcome 
 this issue by re-optimizing the \gls{TAP} core and design parameters as well 
-as adding new functionality to SaltProc v2.0+.
+as adding new functionality to SaltProc v0.2.0+.
 
 Acting as a complement to Figure ~\ref{fig:keff}, the Figure~\ref{fig:shannon} 
 shows the Shannon entropy of a fission source as a function of the number of 
@@ -856,7 +864,7 @@ critical.
   \label{fig:u-pu}
 \end{figure}
 
-We checked the correctness of SaltProc v2.0+ by comparing the mass of the 
+We checked the correctness of SaltProc v0.2.0+ by comparing the mass of the 
 important isotopes ($^{135}$Xe, $^{135}$I) for load-following operation to an 
 expected mass after each depletion step (Figure~\ref{fig:xe-i}). The expected 
 mass of a $^{135}$Xe was calculated as follows:
@@ -878,10 +886,10 @@ mass of a $^{135}$Xe was calculated as follows:
 \end{figure}
 
 The $^{135}$I approach is similar, but the extraction efficiency of iodine in 
-the nickel filter is only 5\%. Figure~\ref{fig:xe-i} shows that SaltProc v2.0+ 
+the nickel filter is only 5\%. Figure~\ref{fig:xe-i} shows that SaltProc v0.2.0+ 
 extraction module correctly removes target isotopes with the specified 
 extraction efficiency: SaltProc and expected mass match. Overall, the 
-\gls{TAP} fuel reprocessing system simulated with SaltProc v2.0+ allows 
+\gls{TAP} fuel reprocessing system simulated with SaltProc v0.2.0+ allows 
 maintaining $^{135}$Xe inventory in the core as low as 1g during operation on 
 100\% power.
 
@@ -909,7 +917,7 @@ shutdown for reactor maintenance. That is, we assume that the reactor
 maintaining the long-term reactivity by periodically replacing stationary
 zirconium hydride rod assemblies with those containing more rods (e.g., 
 replacement of a four-rod assembly with a nine-rod assembly)  
-\cite{betzler_fuel_2018}. Additionally, we will add in a SaltProc v2.0+ 
+\cite{betzler_fuel_2018}. Additionally, we will add in a SaltProc v0.2.0+ 
 capability to switch from one geometry file to another with a user-defined 
 time interval. 
 \paragraph{Reprocessing scheme:} Extraction efficiencies and refueling 
