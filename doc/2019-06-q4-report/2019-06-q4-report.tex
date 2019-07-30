@@ -141,21 +141,27 @@
     Department of Energy Advanced Research Projects Agency - Energy 
     Modeling-Enhanced Innovations Trailblazing Nuclear Energy Reinvigoration 
     (DOE ARPA-E MEITNER) Program (award DE-AR0000983).}
+    \vspace{0.2mm}
+    \textit{This research is supported by the Blue Waters sustained-petascale 
+    computing project, which is supported by the National Science Foundation 
+    (awards OCI-0725070 and ACI-1238993) and the state of Illinois. Blue Waters 
+    is a joint effort of the University of Illinois at Urbana-Champaign and its 
+    National Center for Supercomputing Applications.}
 
 \end{titlepage}
 
 \section{Introduction}
 We initiated the Fuel Cycle Simulation task (Task 2) in August 2018 to more 
 realistically model the online reprocessing system of the \gls{TAP} 
-\gls{MSR}. A Python toolkit, SaltProc v1 \cite{rykhlevskii_modeling_2019,
+\gls{MSR}. A Python toolkit, SaltProc v0.1 \cite{rykhlevskii_modeling_2019,
 rykhlevskii_advanced_2018, rykhlevskii_arfc/saltproc_2018}, was developed to 
 represent the simplified online fuel salt processing of a \gls{MSBR}.
 More recently, an advanced SaltProc version (SaltProc v0.2.0+) was developed 
 to simulate the complex salt reprocessing system of the \gls{TAP}, 
 incorporating user-parametrized components into the fuel salt processing 
 design. This report summarizes the progress we have made towards milestone 
-\textbf{M2.1: Demonstrate SaltProc}, the challenges we currently face, and 
-the steps toward the Task 2 objectives.
+\textbf{M2.1: Demonstrate SaltProc} and the steps toward the subsequent Task 2 
+objectives.
 
 \section{Milestone objectives}
 ARPA-E Award No. DE-AR0000983 with the Board of Trustees of the University of Illinois Attachment 3 (Technical Milestones and Deliverables) section D (Description of 
@@ -169,32 +175,38 @@ be coupled with Serpent 2 where Monte Carlo results will be done to <10\%
 relative error accuracy.''
 \end{quote}
         
-        
-        Herein we demonstrated the following 
-capabilities of SaltProc v0.2.0+:
+This milestone has been completed through significant open source software 
+development and large scale high performance computing demonstration. In this 
+document, we will discuss and demonstrate the capabilities of SaltProc v0.2.0+ 
+which together satisfy this milestone goal. In particular SaltProc v0.2.0 can:
+
 \begin{enumerate}
-	\item Read a user-defined Serpent 2 input template file with the model geometry, 
-	material composition, total heating power, and boundary conditions.
-	\item Read a user-defined \emph{.json} input file with the parameters and 
-	structure of the fuel salt reprocessing system.
-	\item Run Serpent 2 in parallel mode to perform a depletion calculation.
-	\item Read the depleted fuel composition file and store it in the HDF5 
-	database \cite{the_hdf_group_hierarchical_1997}.
-	\item Remove poisons from the fuel's isotopic composition by passing 
-	information	through the user-parametrized components of the fuel salt 
-	processing system. For demonstration proposes, SaltProc v0.2.0+ used 
-	user-defined constant 	separation efficiencies but can handle variable 
-	efficiencies defined in Task 1.
-	\item Replace fuel salt mass lost in the primary loop due to poisons 
-	extraction by adding fresh salt with a user-defined isotopic composition 
-	(e.g., \gls{LEU} 5\% and 19.79\%, for this work).
-	\item Record the fuel salt composition after salt reprocessing; waste 
-	streams from each component of the reprocessing system; and other major 
-	core parameters, such as multiplication factor, burnup, total fissile 
-	mass, effective delayed neutron fraction, and breeding ratio.	
+        \item Read a user-defined Serpent 2 \cite{leppanen_serpent_2014} input 
+                template file including the reactor  model geometry, material 
+                composition, total heating power, and boundary conditions.
+        \item Read a user-defined \texttt{.json} input file with key parameters 
+                and structure of the fuel salt reprocessing system.
+	\item Run Serpent 2 in parallel mode to perform a depletion calculation 
+                on the Blue Waters supercomputer.
+	\item Read the resulting depleted fuel composition file and store it in 
+                an HDF5 output database \cite{the_hdf_group_hierarchical_1997}.
+        \item Remove poisons from the fuel's isotopic composition by passing 
+                information through the user-parametrized components of the 
+                fuel salt processing system. For demonstration proposes, 
+                SaltProc v0.2.0+ used user-defined constant separation 
+                efficiencies and can handle variable efficiencies once they are 
+                defined via Task 1.
+        \item Replace discarded fuel salt mass by adding fresh salt with a user-defined 
+                isotopic composition (e.g., \gls{LEU} 5\% and 19.79\%, for this 
+                work).
+        \item Record the fuel salt composition after salt reprocessing; waste 
+                streams from each component of the reprocessing system; and 
+                other major core parameters such as multiplication factor, 
+                burnup, total fissile mass, effective delayed neutron fraction, 
+                and breeding ratio.
 \end{enumerate}
 
-\section{The TRANSATOMIC POWER Molten Salt Reactor concept}
+\section{The Transatomic Power Molten Salt Reactor concept}
 The \gls{TAP} concept is a 1250 MW$_{th}$ \gls{MSR} with a LiF-based uranium 
 fuel salt \cite{transatomic_power_corporation_technical_2016}. This concept 
 uses configurable zirconium hydride (ZrH$_{1.66}$) rods as the moderator while 
