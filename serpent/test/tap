@@ -10,13 +10,13 @@ mat ctrlPois -5.873 tmp 900 rgb 127 205 187 vol 1.11635E+04
 
 
 % ---- All CR inserted by default - withdrawn
-%trans CR0 0.0 0.0 400.0
-%trans CR1 0.0 0.0 400.0
-%trans CR2 0.0 0.0 400.0
-%trans CR3 0.0 0.0 400.0
-%trans CR4 0.0 0.0 400.0
-%trans CR5 0.0 0.0 400.0
-%trans CR6 0.0 0.0 400.0
+trans CR0 0.0 0.0 400.0
+trans CR1 0.0 0.0 400.0
+trans CR2 0.0 0.0 400.0
+trans CR3 0.0 0.0 400.0
+trans CR4 0.0 0.0 400.0
+trans CR5 0.0 0.0 400.0
+trans CR6 0.0 0.0 400.0
 
 
 %therm zrh_h 900 hzr05.32t hzr06.32t   % 900K H-Zr
@@ -25,15 +25,19 @@ mat ctrlPois -5.873 tmp 900 rgb 127 205 187 vol 1.11635E+04
 %set nfylib "/projects/sciteam/bahg/serpent/xsdata/jeff312/sss_jeff33.nfy"
 %set sfylib "/projects/sciteam/bahg/serpent/xsdata/jeff312/sss_jeff33.sfy"
 set acelib "/home/andrei2/serpent/xsdata/jeff312/sss_jeff312.xsdata"
+set declib "/home/andrei2/serpent/xsdata/jeff312/sss_jeff33.dec"
+set nfylib "/home/andrei2/serpent/xsdata/jeff312/sss_jeff33.nfy"
+set sfylib "/home/andrei2/serpent/xsdata/jeff312/sss_jeff33.sfy"
 % --- Neutron population and criticality cycles:
 
-set pop 7000 300 150 % 300 000
+set pop 15000 300 150 % 300 000
 
 % --- Geometry and mesh plots:
 
 % --- Geometry and mesh plots:
 %plot 33 1000 1000 179.0 0 155.0 0 155.0
-plot 33 1000 1000 145.0 0 155.0 0 155.0
+%plot 33 1000 1000 145.0 0 155.0 0 155.0
+plot 33 6000 6000 0.0
 %plot 1 8000 8000 0.0
 %plot 1 8000 8000 4.5
 
@@ -41,8 +45,8 @@ plot 13 2000 2000 16.5
 
 % --- Depletion parameters
 % --- Options for burnup calculation:
-%set bumode  2  % CRAM method
-%set pcc     1  % Predictor-corrector calculation on
+set bumode  2  % CRAM method
+set pcc     1  % Predictor-corrector calculation on
 %set xscalc  2  % Cross sections from spectrum
 %set bunorm 2
 %set opti 3
@@ -54,3 +58,7 @@ plot 13 2000 2000 16.5
 
 %set rfw 1 restart
 %set rfr idx 321 restart
+
+set power 1.250E+09
+dep daytot
+15
