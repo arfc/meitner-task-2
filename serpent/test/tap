@@ -1,5 +1,6 @@
 set title "All rods (solid, B4C) are fully withdrawn"
-include "../mat_comp/mat_composition1.ini"
+%include "../mat_comp/mat_composition1.ini"
+include "../mat_comp/saltproc_prepr_comp.ini"
 include "../geometry/core_SVF_333.ini"
 include "../mat_comp/non_burnable_mats.ini"
 
@@ -48,7 +49,7 @@ set repro 0
 % --- Geometry and mesh plots:
 
 % --- Geometry and mesh plots:
-%plot 33 1000 1000 179.0 0 155.0 0 155.0
+%plot 33 9000 9000 4.5 0 155.0 0 155.0
 %plot 33 1000 1000 145.0 0 155.0 0 155.0
 %plot 33 6000 6000 0.0
 %plot 1 8000 8000 0.0
