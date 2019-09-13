@@ -1,6 +1,6 @@
 set title "All rods (solid, B4C) are fully withdrawn"
-include "../mat_comp/mat_composition1.ini"
-%include "../mat_comp/saltproc_prepr_comp.ini"
+%include "../mat_comp/mat_composition1.ini"
+include "../mat_comp/saltproc_prepr_comp.ini"
 include "../geometry/core_SVF_333.ini"
 include "../mat_comp/non_burnable_mats.ini"
 
@@ -34,7 +34,7 @@ set nfylib "sss_jeff33.nfy"
 %set sfylib "/home/andrei2/serpent/xsdata/jeff312/sss_jeff33.sfy"
 % --- Neutron population and criticality cycles:
 
-set pop 60000 60 50 1.0 1  % 300 000
+set pop 50000 400 20 1.0 1  % 300 000
 
 % --- Score buffering (0 = private, 1 = shared)
 
@@ -78,4 +78,4 @@ set pcc     2  % Predictor-corrector calculation on
 
 set power 1.250E+09
 dep daytot
-15
+35
