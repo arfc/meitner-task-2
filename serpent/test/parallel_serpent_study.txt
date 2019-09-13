@@ -1,0 +1,111 @@
+MPI=32:OMP=8, pcc=2
+RUNNING_TIME - INIT_TIME = 1.7309
+% Running times:
+
+TOT_CPU_TIME              (idx, 1)        =  1.56218E+01 ;
+RUNNING_TIME              (idx, 1)        =  3.96705E+00 ;
+INIT_TIME                 (idx, [1:  2])  = [  2.23615E+00  2.23615E+00 ];
+PROCESS_TIME              (idx, [1:  2])  = [  2.07667E-02  2.07667E-02 ];
+TRANSPORT_CYCLE_TIME      (idx, [1:  3])  = [  1.71010E+00  1.71010E+00  0.00000E+00 ];
+BURNUP_CYCLE_TIME         (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+BATEMAN_SOLUTION_TIME     (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+MPI_OVERHEAD_TIME         (idx, [1:  2])  = [  8.00000E-02  1.96667E-02 ];
+ESTIMATED_RUNNING_TIME    (idx, [1:  2])  = [  3.96497E+00  0.00000E+00 ];
+CPU_USAGE                 (idx, 1)        = 3.93790 ;
+TRANSPORT_CPU_USAGE       (idx, [1:   2]) = [  7.93507E+00 4.9E-05 ];
+OMP_PARALLEL_FRAC         (idx, 1)        =  4.27707E-01 ;
+
+% Memory usage:
+
+AVAIL_MEM                 (idx, 1)        = 64626.46 ;
+ALLOC_MEMSIZE             (idx, 1)        = 9236.05;
+MEMSIZE                   (idx, 1)        = 9167.05;
+XS_MEMSIZE                (idx, 1)        = 9073.78;
+MAT_MEMSIZE               (idx, 1)        = 79.25;
+RES_MEMSIZE               (idx, 1)        = 1.11;
+IFC_MEMSIZE               (idx, 1)        = 0.00;
+MISC_MEMSIZE              (idx, 1)        = 12.91;
+UNKNOWN_MEMSIZE           (idx, 1)        = 0.00;
+UNUSED_MEMSIZE            (idx, 1)        = 69.00;
+
+
+MPI=32:OMP=32, pcc=2; 
+RUNNING_TIME - INIT_TIME = 0.52905
+% Running times:
+
+TOT_CPU_TIME              (idx, 1)        =  1.72702E+01 ;
+RUNNING_TIME              (idx, 1)        =  2.73275E+00 ;
+INIT_TIME                 (idx, [1:  2])  = [  2.20370E+00  2.20370E+00 ];
+PROCESS_TIME              (idx, [1:  2])  = [  2.89833E-02  2.89833E-02 ];
+TRANSPORT_CYCLE_TIME      (idx, [1:  3])  = [  5.00050E-01  5.00050E-01  0.00000E+00 ];
+BURNUP_CYCLE_TIME         (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+BATEMAN_SOLUTION_TIME     (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+MPI_OVERHEAD_TIME         (idx, [1:  2])  = [  1.11117E-01  2.57500E-02 ];
+ESTIMATED_RUNNING_TIME    (idx, [1:  2])  = [  2.73223E+00  0.00000E+00 ];
+CPU_USAGE                 (idx, 1)        = 6.31970 ;
+TRANSPORT_CPU_USAGE       (idx, [1:   2]) = [  3.05672E+01 0.00019 ];
+OMP_PARALLEL_FRAC         (idx, 1)        =  1.75652E-01 ;
+
+% Memory usage:
+
+AVAIL_MEM                 (idx, 1)        = 64626.46 ;
+ALLOC_MEMSIZE             (idx, 1)        = 9596.05;
+MEMSIZE                   (idx, 1)        = 9405.43;
+XS_MEMSIZE                (idx, 1)        = 9310.04;
+MAT_MEMSIZE               (idx, 1)        = 79.83;
+RES_MEMSIZE               (idx, 1)        = 1.97;
+IFC_MEMSIZE               (idx, 1)        = 0.00;
+MISC_MEMSIZE              (idx, 1)        = 13.59;
+UNKNOWN_MEMSIZE           (idx, 1)        = 0.00;
+UNUSED_MEMSIZE            (idx, 1)        = 190.62;
+
+3) 64 nodes MPI=256:OMP=8
+RUNNING_TIME - INIT_TIME = 0.3481
+% Running times:
+
+TOT_CPU_TIME              (idx, 1)        =  3.94583E+00 ;
+RUNNING_TIME              (idx, 1)        =  2.54340E+00 ;
+INIT_TIME                 (idx, [1:  2])  = [  2.19530E+00  2.19530E+00 ];
+PROCESS_TIME              (idx, [1:  2])  = [  3.72333E-02  3.72333E-02 ];
+TRANSPORT_CYCLE_TIME      (idx, [1:  3])  = [  3.10850E-01  3.10850E-01  0.00000E+00 ];
+BURNUP_CYCLE_TIME         (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+BATEMAN_SOLUTION_TIME     (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+MPI_OVERHEAD_TIME         (idx, [1:  2])  = [  2.10100E-01  1.16483E-01 ];
+ESTIMATED_RUNNING_TIME    (idx, [1:  2])  = [  2.46105E+00  0.00000E+00 ];
+CPU_USAGE                 (idx, 1)        = 1.55140 ;
+TRANSPORT_CPU_USAGE       (idx, [1:   2]) = [  7.67755E+00 0.00012 ];
+OMP_PARALLEL_FRAC         (idx, 1)        =  8.75207E-02 ;
+
+4) 128 nodes MPI=128:OMP=32
+
+% Running times:
+RUNNING_TIME - INIT_TIME = 0.1993
+TOT_CPU_TIME              (idx, 1)        =  6.13317E+00 ;
+RUNNING_TIME              (idx, 1)        =  2.46962E+00 ;
+INIT_TIME                 (idx, [1:  2])  = [  2.27032E+00  2.27032E+00 ];
+PROCESS_TIME              (idx, [1:  2])  = [  3.30833E-02  3.30833E-02 ];
+TRANSPORT_CYCLE_TIME      (idx, [1:  3])  = [  1.66183E-01  1.66183E-01  0.00000E+00 ];
+BURNUP_CYCLE_TIME         (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+BATEMAN_SOLUTION_TIME     (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+MPI_OVERHEAD_TIME         (idx, [1:  2])  = [  1.66517E-01  5.05333E-02 ];
+ESTIMATED_RUNNING_TIME    (idx, [1:  2])  = [  2.44848E+00  0.00000E+00 ];
+CPU_USAGE                 (idx, 1)        = 2.48345 ;
+TRANSPORT_CPU_USAGE       (idx, [1:   2]) = [  2.81678E+01 0.00026 ];
+OMP_PARALLEL_FRAC         (idx, 1)        =  5.31257E-02 ;
+
+
+5) Test 1 core 1 node
+TOT_CPU_TIME              (idx, 1)        =  4.79461E+02 ;
+RUNNING_TIME              (idx, 1)        =  1.72856E+01 ;
+INIT_TIME                 (idx, [1:  2])  = [  2.07708E+00  2.07708E+00 ];
+PROCESS_TIME              (idx, [1:  2])  = [  3.91666E-03  3.91666E-03 ];
+TRANSPORT_CYCLE_TIME      (idx, [1:  3])  = [  1.52046E+01  1.52046E+01  0.00000E+00 ];
+BURNUP_CYCLE_TIME         (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+BATEMAN_SOLUTION_TIME     (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+MPI_OVERHEAD_TIME         (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+ESTIMATED_RUNNING_TIME    (idx, [1:  2])  = [  1.72854E+01  0.00000E+00 ];
+CPU_USAGE                 (idx, 1)        = 27.73763 ;
+TRANSPORT_CPU_USAGE       (idx, [1:   2]) = [  3.14215E+01 0.00026 ];
+OMP_PARALLEL_FRAC         (idx, 1)        =  8.63215E-01 ;
+
+
