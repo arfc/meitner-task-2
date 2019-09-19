@@ -3,7 +3,7 @@ include "../mat_comp/mat_composition1.ini"
 %include "../mat_comp/saltproc_prepr_comp.ini"
 include "../mat_comp/non_burnable_mats.ini"
 
-include "../geometry/various_svf/470.ini"
+include "../geometry/various_svf/342_base.ini"
 
 mat ctrlPois -5.873 tmp 900 rgb 127 205 187 vol 1.11635E+04
 6000.09c -0.2307
@@ -32,7 +32,7 @@ set declib "sss_jeff33.dec"
 %set sfylib "/home/andrei2/serpent/xsdata/jeff312/sss_jeff33.sfy"
 % --- Neutron population and criticality cycles:
 
-set pop 10000 300 50 1.0 1  % 300 000
+set pop 15000 300 50 1.0 1  % 300 000
 
 % --- Score buffering (0 = private, 1 = shared)
 
