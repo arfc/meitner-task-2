@@ -3,7 +3,11 @@ include "../mat_comp/mat_composition1.ini"
 %include "../mat_comp/saltproc_prepr_comp.ini"
 include "../mat_comp/non_burnable_mats.ini"
 
-include "../geometry/various_svf/342_base.ini"
+%include "../geometry/various_svf_2/342_base.ini"
+%include "../geometry/various_svf_2/406.ini"
+%include "../geometry/various_svf_2/427.ini"
+%include "../geometry/various_svf_2/521.ini"
+include "../geometry/various_svf_2/600.ini"
 
 mat ctrlPois -5.873 tmp 900 rgb 127 205 187 vol 1.11635E+04
 6000.09c -0.2307
