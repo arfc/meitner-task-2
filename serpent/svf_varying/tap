@@ -3,16 +3,12 @@ include "../mat_comp/mat_composition1.ini"
 %include "../mat_comp/saltproc_prepr_comp.ini"
 include "../mat_comp/non_burnable_mats.ini"
 
-%include "../geometry/various_svf_2/342_base.ini"
+include "../geometry/various_svf_2/342_base.ini"
 %include "../geometry/various_svf_2/406.ini"
 %include "../geometry/various_svf_2/427.ini"
 %include "../geometry/various_svf_2/521.ini"
 %include "../geometry/various_svf_2/597.ini"
-include "../geometry/various_svf_2/688.ini"
-
-mat ctrlPois -5.873 tmp 900 rgb 127 205 187 vol 1.11635E+04
-6000.09c -0.2307
-5010.09c -0.7693
+%include "../geometry/various_svf_2/688.ini"
 
 % ---- All CR inserted by default - withdrawn
 trans CR0 0.0 0.0 400.0
@@ -55,7 +51,7 @@ set repro 0
 %     Use grid thinning with 5e-5 reconstruction tolerance between
 %     1e-8 and 15 MeV.
 
-set egrid 5e-5 1e-8 15.0
+set egrid 5e-5 1e-10 15.0
 
 % --- Cut-offs:
 
@@ -73,8 +69,8 @@ plot 13 2000 2000 16.5
 
 % --- Depletion parameters
 % --- Options for burnup calculation:
-%set bumode  2  % CRAM method
-%set pcc     2  % Predictor-corrector calculation on
+set bumode  2  % CRAM method
+set pcc     2  % Predictor-corrector calculation on
 %set xscalc  2  % Cross sections from spectrum
 %set bunorm 2
 %set opti 3
@@ -87,6 +83,4 @@ plot 13 2000 2000 16.5
 %set rfw 1 restart
 %set rfr idx 321 restart
 
-%set power 1.250E+09
-%dep daytot
-%15
+set power 1.250E+09 dep daytot 15
