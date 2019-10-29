@@ -1,7 +1,9 @@
 set title "All rods (solid, B4C) are fully withdrawn"
+
+
 include "../mat_comp/mat_composition_no_s.ini"
 %include "../mat_comp/saltproc_prepr_comp.ini"
-include "../geometry/core_SVF_333.ini"
+include "../geometry/various_svf_2/342_base.ini"
 include "../mat_comp/non_burnable_mats.ini"
 
 
@@ -11,13 +13,13 @@ mat ctrlPois -5.873 tmp 900 rgb 127 205 187 vol 1.11635E+04
 
 
 % ---- All CR inserted by default - withdrawn
-trans CR0 0.0 0.0 400.0
-trans CR1 0.0 0.0 400.0
-trans CR2 0.0 0.0 400.0
-trans CR3 0.0 0.0 400.0
-trans CR4 0.0 0.0 400.0
-trans CR5 0.0 0.0 400.0
-trans CR6 0.0 0.0 400.0
+%trans CR0 0.0 0.0 400.0
+%trans CR1 0.0 0.0 400.0
+%trans CR2 0.0 0.0 400.0
+%trans CR3 0.0 0.0 400.0
+%trans CR4 0.0 0.0 400.0
+%trans CR5 0.0 0.0 400.0
+%trans CR6 0.0 0.0 400.0
 
 
 %therm zrh_h 900 hzr05.32t hzr06.32t   % 900K H-Zr
@@ -34,7 +36,7 @@ set acelib "sss_jeff312.xsdata"
 %set sfylib "/home/andrei2/serpent/xsdata/jeff312/sss_jeff33.sfy"
 % --- Neutron population and criticality cycles:
 
-set pop 5000 200 20 1.0 1  % 300 000
+set pop 15000 400 200 1.0 1  % 300 000
 
 % --- Score buffering (0 = private, 1 = shared)
 
