@@ -24,11 +24,11 @@ include "../mat_comp/non_burnable_mats.ini"
 %include "../geometry/various_svf_5/681.ini"
 %include "../geometry/various_svf_5/880.ini"
 %include "../geometry/various_svf_5/900.ini"
-include "../geometry/various_svf_6/998.ini"
-%include "../geometry/various_svf_5/1070.ini"
+%include "../geometry/various_svf_6/988.ini"
+%include "../geometry/various_svf_6/1126.ini"
 %include "../geometry/various_svf_5/1338.ini"
 %include "../geometry/various_svf_5/1498.ini"
-%include "../geometry/various_svf_5/1668_all.ini"
+include "../geometry/various_svf_5/1668_all.ini"
 
 % ---- All CR inserted by default - withdrawn
 trans CR0 0.0 0.0 400.0
