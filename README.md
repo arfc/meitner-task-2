@@ -9,6 +9,33 @@ data, collected data, and publications related to the Task 2 "Fuel Cycle modelin
 The documentation for this work can be found in the docs folder as well as this 
 readme. 
 
+## Organization of the project
+The project has the following structure:
+
+    meitner-task-2/
+      |- CITATION.md
+      |- CONTRIBUTING
+      |- doc/
+      |- LICENSE
+      |- README.md
+         |- 2019-06-q4-report/
+         |- ...
+      |- saltproc_results/
+         |- feed_leu_5/
+         |- feed_leu_19.79/
+         |- no_feed_pure_sss/
+         |- npop_refinement/
+         |- plotters/
+         |- spectrum/
+         |- time_step_refinement/
+         |- variable_geometry_leu5/
+         |- repro_scheme__q4_report.dot
+      |- serpent/
+         |- geometry/
+         |- mat_comp/
+         |- svf_varying/
+         |- test/
+
 ## License
 
 The license for this work can be found
