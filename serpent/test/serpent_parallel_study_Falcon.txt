@@ -1,0 +1,70 @@
+#PBS -l select=8:ncpus=36:mpiprocs=2:mem=32gb    -omp 18
+RUNNING - INIT = 1.05517 min
+
+t = 1:30min
+TOT_CPU_TIME              (idx, 1)        =  1.94822E+01 ;
+RUNNING_TIME              (idx, 1)        =  2.13932E+00 ;
+INIT_TIME                 (idx, [1:  2])  = [  1.08415E+00  1.08415E+00 ];
+PROCESS_TIME              (idx, [1:  2])  = [  3.05667E-02  3.05667E-02 ];
+TRANSPORT_CYCLE_TIME      (idx, [1:  3])  = [  1.02448E+00  1.02448E+00  0.00000E+00 ];
+BURNUP_CYCLE_TIME         (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+BATEMAN_SOLUTION_TIME     (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+MPI_OVERHEAD_TIME         (idx, [1:  2])  = [  6.74833E-02  2.87667E-02 ];
+ESTIMATED_RUNNING_TIME    (idx, [1:  2])  = [  2.13858E+00  0.00000E+00 ];
+CPU_USAGE                 (idx, 1)        = 9.10675 ;
+TRANSPORT_CPU_USAGE       (idx, [1:   2]) = [  1.79871E+01 0.00019 ];
+OMP_PARALLEL_FRAC         (idx, 1)        =  4.71327E-01 ;
+
+
+
+#PBS -l select=4:ncpus=36:mpiprocs=2:mem=32gb     -omp 18
+RUNNING - INIT = 2.09514 min
+t = 5:18 min
+
+TOT_CPU_TIME              (idx, 1)        =  3.82129E+01 ;
+RUNNING_TIME              (idx, 1)        =  3.21502E+00 ;
+INIT_TIME                 (idx, [1:  2])  = [  1.11988E+00  1.11988E+00 ];
+PROCESS_TIME              (idx, [1:  2])  = [  2.62500E-02  2.62500E-02 ];
+TRANSPORT_CYCLE_TIME      (idx, [1:  3])  = [  2.06882E+00  2.06882E+00  0.00000E+00 ];
+BURNUP_CYCLE_TIME         (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+BATEMAN_SOLUTION_TIME     (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+MPI_OVERHEAD_TIME         (idx, [1:  2])  = [  5.98833E-02  2.46500E-02 ];
+ESTIMATED_RUNNING_TIME    (idx, [1:  2])  = [  3.21440E+00  0.00000E+00 ];
+CPU_USAGE                 (idx, 1)        = 11.88575 ;
+TRANSPORT_CPU_USAGE       (idx, [1:   2]) = [  1.79844E+01 0.00013 ];
+OMP_PARALLEL_FRAC         (idx, 1)        =  6.35652E-01 ;
+
+#PBS -l select=16:ncpus=36:mpiprocs=2:mem=32gb     -omp 18
+RUNNING - INIT = 0.54875 min
+t = 2:11 min
+
+TOT_CPU_TIME              (idx, 1)        =  1.03530E+01 ;
+RUNNING_TIME              (idx, 1)        =  1.64780E+00 ;
+INIT_TIME                 (idx, [1:  2])  = [  1.09905E+00  1.09905E+00 ];
+PROCESS_TIME              (idx, [1:  2])  = [  2.93333E-02  2.93333E-02 ];
+TRANSPORT_CYCLE_TIME      (idx, [1:  3])  = [  5.19367E-01  5.19367E-01  0.00000E+00 ];
+BURNUP_CYCLE_TIME         (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+BATEMAN_SOLUTION_TIME     (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+MPI_OVERHEAD_TIME         (idx, [1:  2])  = [  7.49500E-02  3.05333E-02 ];
+ESTIMATED_RUNNING_TIME    (idx, [1:  2])  = [  1.64412E+00  0.00000E+00 ];
+CPU_USAGE                 (idx, 1)        = 6.28295 ;
+TRANSPORT_CPU_USAGE       (idx, [1:   2]) = [  1.79841E+01 0.00024 ];
+OMP_PARALLEL_FRAC         (idx, 1)        =  3.06216E-01 ;
+
+#PBS -l select=32:ncpus=36:mpiprocs=2:mem=32gb     -omp 18
+RUNNING - INIT = 0.30327 min
+t = 1:40 min
+
+TOT_CPU_TIME              (idx, 1)        =  5.86304E+00 ;
+RUNNING_TIME              (idx, 1)        =  1.38435E+00 ;
+INIT_TIME                 (idx, [1:  2])  = [  1.08108E+00  1.08108E+00 ];
+PROCESS_TIME              (idx, [1:  2])  = [  3.26000E-02  3.26000E-02 ];
+TRANSPORT_CYCLE_TIME      (idx, [1:  3])  = [  2.70600E-01  2.70600E-01  0.00000E+00 ];
+BURNUP_CYCLE_TIME         (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+BATEMAN_SOLUTION_TIME     (idx, [1:  2])  = [  0.00000E+00  0.00000E+00 ];
+MPI_OVERHEAD_TIME         (idx, [1:  2])  = [  8.22333E-02  3.49333E-02 ];
+ESTIMATED_RUNNING_TIME    (idx, [1:  2])  = [  1.37988E+00  0.00000E+00 ];
+CPU_USAGE                 (idx, 1)        = 4.23523 ;
+TRANSPORT_CPU_USAGE       (idx, [1:   2]) = [  1.79751E+01 0.00034 ];
+OMP_PARALLEL_FRAC         (idx, 1)        =  1.84033E-01 ;
+

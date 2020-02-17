@@ -242,4 +242,7 @@ TSWLatexianTemp*
 *.spl
 
 # data base
-*.h5
+#*.h5
+
+# Ignore checkpoint from Jupiter
+.*/

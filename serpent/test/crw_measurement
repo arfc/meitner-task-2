@@ -1,0 +1,91 @@
+set title "Compute CRW for very thermal geo (EOL)"
+include "../mat_comp/mat_composition_no_s.ini"
+include "../mat_comp/non_burnable_mats.ini"
+%include "core.ini"
+%include "../geometry/various_svf_3/347_base.ini"
+include "/home/andrei2/Desktop/git/tap-msr/thermal_eol/core.ini"
+
+%set gcu -1
+%therm zrh_h 900 hzr05.32t hzr06.32t   % 900K H-Zr
+%set acelib "/projects/sciteam/bahg/serpent/xsdata/jeff312/sss_jeff312_8_9_10.xsdata"
+set acelib "/projects/sciteam/bahg/serpent/xsdata/jeff312/sss_jeff312.xsdata"
+set declib "/projects/sciteam/bahg/serpent/xsdata/jeff312/sss_jeff33.dec"
+set nfylib "/projects/sciteam/bahg/serpent/xsdata/jeff312/sss_jeff33.nfy"
+set sfylib "/projects/sciteam/bahg/serpent/xsdata/jeff312/sss_jeff33.sfy"
+
+mat ctrlPois -2.52 tmp 900 rgb 127 205 187 vol 1.11635E+04
+6000.09c -0.2307
+5010.09c -0.7693
+
+% --- Neutron population and criticality cycles:
+
+set pop 15000 1000 60 %35000 1000 100 % 300 000
+
+% --- Geometry and mesh plots:
+%plot 33 1000 1000 179.0 0 155.0 0 155.0
+%plot 33 1000 1000 134.0 0 155.0 0 155.0
+%plot 1 8000 8000 0.0
+%plot 1 8000 8000 4.5
+
+plot 13 2000 2000 16.5
+%plot 13 2000 2000 0  -50.0 0 -180 180
+
+%plot 13 8000 8000 16.5 0 30 130 160
+
+%plot 1 2000 2000 22.5
+%mesh 3 4000 4000
+
+% --- Depletion parameters
+% --- Options for burnup calculation:
+%set bumode  2  % CRAM method
+%set pcc     1  % Predictor-corrector calculation on
+%set xscalc  2  % Cross sections from spectrum
+%set bunorm 2
+%set opti 3
+
+%set printm 1 0.0
+%set inventory all
+%set rfw 1 restart
+%set rfr idx 321 restart
+
+% ---- Branches ----
+utrans pos00 0.0 0.0 400.0
+utrans pos01 0.0 0.0 400.0
+utrans pos11 0.0 0.0 400.0
+utrans pos21 0.0 0.0 400.0
+utrans pos31 0.0 0.0 400.0
+utrans pos41 0.0 0.0 400.0
+utrans pos51 0.0 0.0 400.0
+utrans pos61 0.0 0.0 400.0
+
+% --- Nominal branch
+branch nom % all withhdrawn
+tra CR0 pos01
+tra CR1 pos11
+tra CR2 pos21
+tra CR3 pos31
+tra CR4 pos41
+tra CR5 pos51
+tra CR6 pos61
+
+% ---- Withdrawn all CR in the core ---
+branch crw0         % all inserted
+
+% --- Parameters included in coefficient output:
+set coefpara 1
+IMP_KEFF
+BETA_EFF
+LAMBDA
+SIX_FF_ETA
+SIX_FF_F
+SIX_FF_P
+SIX_FF_EPSILON
+SIX_FF_LF
+SIX_FF_LT
+SIX_FF_KINF
+SIX_FF_KEFF
+
+% --- Coefficient matrix: (full set of variations: 3x3x3x2)
+coef 1
+0
+2 nom crw0
