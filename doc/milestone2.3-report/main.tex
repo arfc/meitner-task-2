@@ -1,43 +1,33 @@
 \section{Introduction}
 
-    The University of Illinois, Urbana-Champaign (UIUC) undertook a series of 
+    The \gls{UIUC} undertook a series of 
     studies to demonstrate a fuel processing system that enables load-following 
-    in Molten Salt Reactors (MSRs). Thus far, we demonstrated and released the 
-    online fuel salt processing tool (Saltproc V0.2 
-    \cite{rykhlevskii_saltproc_2018}) for Molten Salt Reactors per Milestones 
-    2.1 and 2.2. This report presents the progress we have made towards 
+    in \glspl{MSR}. Thus far, we demonstrated and released the 
+    online fuel salt processing tool Saltproc V0.2 
+    \cite{rykhlevskii_saltproc_2018} for \glspl{MSR} per Milestones 
+    2.1 and 2.2. This report presents the final results of this work which 
+    meet the goals of 
     Milestone 2.3.
 
     This study performs sensitivity analysis with the SaltProc during different 
-    load-follow transients to decide the fuel reprocessing system design and 
-    assess the load-following capabilities of the MSRs. The details of the used 
+    load-following transients to inform the fuel reprocessing system design and 
+    assess the load-following capabilities of \glspl{MSR}. The details of the 
     method, simulation codes, sparging system design considerations, results of 
-    load-follow simulation with SaltProc, and results of sensitivity analysis 
-    for the sparging system were provided.
+    load-following simulation with SaltProc, and results of sensitivity analysis 
+    for the sparging system are provided.
 
-    This study considers Molten Salt Breeder Reactor (MSBR) 
+    This study considers the \gls{MSBR}
     \cite{robertson_conceptual_1971} design as the results of the previous 
     reports \cite{rykhlevskii_milestone_2019} show that the TAP MSR is able to 
-    operate at load-follow transients without a gas removal system. Those 
-    reports also clearly say that "The gas removal system is not necessary to 
-    ensure safe TAP system operation during a short-term power drop and restart 
-    transient".
+    operate at load-following transients without a gas removal system. 
 
-    To devise a gas removal system (sparging) design during the load-following 
-    operations, we followed three steps:
+
+    In this milestone, we:
     \begin{itemize}
-        \item Sensitivity analysis for reactor core at different load-follow 
-                scenarios when the sparging system is activated.
-        \item Sensitivity analysis for the sparging system to determine the 
-                boundaries of its design parameters.
-        \item Assessment and determination of design parameters from the 
-                results of the first two steps.
-    \end{itemize}
-
-    What we performed in this milestone are: (i) to evaluate realistic load 
-    profile with $\geq$ $\pm$ 10\% capacity/min reactor power ramping, (ii) to 
-    make sensitivity analysis by varying removal efficiency in a wide range (w/ 
-    Task 1), (iii) to find out smart gas removal regulation bounding.
+            \item evaluated realistic load following profiles with $\geq$ $\pm$ 10\% capacity/min reactor power ramping, 
+            \item analysed system sensitivity to varying removal efficiency 
+                    over a wide range established by Task 1,
+            \item and determined bounding approaches to smart gas removal regulation.
 
 \section{Milestone objectives}
 
@@ -58,16 +48,23 @@
 
 \section{Methods}
 
-\subsection{MSBR Reactor}
-
     We considered the thorium-fueled MSBR design 
     \cite{robertson_conceptual_1971} developed by ORNL due to the reason 
     described in the "Introduction" section. Reactor model was elaborated in 
     Rykhlevskii \emph{et al.} \cite{rykhlevskii_modeling_2019}.
+    To devise a gas removal system (sparging) design to support load-following 
+                    operations in this and other \glspl{MSR}, we followed three steps:
+    \begin{itemize}
+        \item Sensitivity analysis for reactor core at different load-following 
+                scenarios when the sparging system is activated.
+        \item Sensitivity analysis for the sparging system to determine the 
+                boundaries of its design parameters.
+        \item Assessment and determination of design parameters from the 
+                results of the first two steps.
+    \end{itemize}
 
-\subsection{System Codes}
-
-\subsubsection{Saltproc}
+The following sections describe the software tools supporting these steps.
+\subsection{Saltproc}
 
     We used the Saltproc \cite{rykhlevskii_saltproc_2018} for online 
     reprocessing system modeling. The tool, as shown in Figure 
@@ -86,10 +83,10 @@
         \label{fig:scheme}
     \end{figure}
 
-\subsubsection{Dakota}
+\subsection{Dakota}
 
     We used the Dakota code \cite{adams_dakota_2019} for sensitivity analysis 
-    to assess the reactor performance at different load-follow scenarios when 
+    to assess the reactor performance at different load-following scenarios when 
     the sparging system is enabled. The code provides optimization tools 
     including sensitivity analysis packages for miscellaneous design problems. 
     With Dakota group's words:
@@ -109,7 +106,7 @@
     its upper and lower bounds. Each combination was then simulated by Saltproc 
     software coupled to Serpent.
 
-\subsubsection{Serpent}
+\subsection{Serpent}
 
     Serpent software \cite{Lep2014} was used for Monte-Carlo based neutron 
     transport calculations. Serpent model with corresponding Serpent's 
@@ -117,7 +114,6 @@
     for ARPA-E MEITNER Program \cite{rykhlevskii_fuel_2019, 
     rykhlevskii_modeling_2019, rykhlevskii_fuel_2020}.
 
-\newpage
 \FloatBarrier
 
 \section{Sparging Design}
@@ -146,22 +142,28 @@
 
  As illustrated in Figure \ref{fig:sparging}, sparger includes a contactor 
  section and a long pipe with a contactor cross-section of $A_c = \pi\times 
- d^2/4$ and length of $L$. Gas removal efficiency in bubble generator is 
- defined by equation in Figure \ref{fig:eq2} based on 
- \cite{peebles_removal_1968}.
+ d^2/4$ and length of $L$. Gas removal efficiency in the bubble generator is 
+ defined based on Peebles \emph{et al.} in 
+ ORNL-TM-2245, which defined xenon removal efficiency
+($\epsilon_{Xe}$) in a gas separation system as a function of many parameters \cite{peebles_removal_1968}:
 
-    \begin{figure}[h!]
-        \begin{center}
-            \includegraphics[trim={0 0 30 30}, clip, 
-                width=1.0\textwidth]{eq2.1-part1.png}
-            \includegraphics[width=0.7\textwidth]{eq2.1-part2.png}
-        \end{center}
-        \caption{Removal efficiency correlation from 
-            \cite{peebles_removal_1968}}
-        \label{fig:eq2}
-    \end{figure}
+\begin{align}\label{eq:gas_eff}
+        & \epsilon_m = \frac{1-e^{-\beta}}{1+\alpha}
+        \intertext{where}
+        \alpha &= \frac{RT}{H}\cdot\frac{Q_{salt}}{Q_{He}} \\
+        \beta &= \frac{K_L a A_C L (1+\alpha)}{Q_{salt}} \\
+        R &= \mbox{universal gas constant $[L\cdot Pa\cdot mol^{-1}\cdot K^{-1}]$} \nonumber \\
+        T &= \mbox{salt temperature $[K]$} \nonumber \\
+        H &= \mbox{Henry's law constant for solute gas $[Pa\cdot mol^{-1}\cdot L]$} \nonumber \\
+        Q_{salt}&= \mbox{volumetric salt flow rate $[m^3/s]$} \nonumber \\
+        Q_{He}&= \mbox{volumetric helium flow rate $[m^3/s]$} \nonumber \\
+        K_L &= \mbox{liquid phase mass transfer coefficient $[m/s]$} \nonumber \\
+        a &= \mbox{gas-liquid interfacial area per unit volume $[m^{-1}]$} \nonumber \\
+        A_C &= \mbox{contactor cross section $[m^2]$} \nonumber \\
+        L &= \mbox{contactor length $[m].$} \nonumber
+\end{align}
 
-    In the equation, gas-liquid interfacial area per unit volume ($a$) is:
+    In those equations, gas-liquid interfacial area per unit volume ($a$) is:
 
     \begin{equation}\label{interfacial}
         a = \frac{6}{d_b} \frac{Q_{He}}{Q_{salt}+Q_{He}}
@@ -222,7 +224,6 @@
     In a sparger model, the parameters need to be designed are $Q_{salt}$, 
     $Q_{He}$, $L$, $d_p$, $d_b$, and $T_{salt}$.
 
-\newpage
 \FloatBarrier
 
 \subsection{Separator Design}
@@ -264,7 +265,6 @@
         \label{fig:reg_model}
     \end{figure}
 
-\newpage
 \FloatBarrier
 
 \subsection{Integration to Saltproc}
@@ -284,7 +284,6 @@
     experimental and simulation data are supplied by the project's research 
     groups.
 
-\newpage
 \FloatBarrier
 
 \section{Sensitivity Analysis}
@@ -293,7 +292,7 @@
     analyses:
 
     \begin{enumerate}
-        \item Reactor core behavior at different load-follow transients and 
+        \item Reactor core behavior at different load-following transients and 
                 decision on how much removal efficiency is needed to maintain 
                     the criticality in the MSBR when the sparging system is 
                     enabled.
@@ -327,7 +326,7 @@
                 after an 8-hour shutdown, providing maximum Xe poisoning effect 
                     in the reactor.
         \item The second worst-case scenario considers a short period 
-                load-follow for maximum Xe accumulation over time. In this 
+                load-following for maximum Xe accumulation over time. In this 
                     scenario, the reactor runs at full power for one hour after 
                     an hour of shutdown, and this repeats several times.
     \end{itemize}
@@ -382,17 +381,16 @@
     0.005 m$^{3}$/s. Accordingly, we changed these parameters between -50\% and 
     +50\% (i.e., $\pm$10\%, $\pm$25\% and $\pm$50\%).
 
-\newpage
 \FloatBarrier
 
 \section{Results}
 
 \subsection{Load-Follow}
 
-    We first carried out sensitivity analysis for different load-follow 
+    We first carried out sensitivity analysis for different load-following 
     transients. Initial results shown in Figure \ref{fig:loadfollow} and the 
     results from the previous work \cite{rykhlevskii_fuel_2020} point out that 
-    MSBR cannot do load-follow without gas removal at BOL (30 days), MOL (15 
+    \gls{MSBR} cannot do load-following without gas removal at BOL (30 days), MOL (15 
     years), and EOL (30 years) as the effective multiplication factor decreases 
     with the start of the shutdown. Online gas removal from the fuel salt even 
     with moderate efficiency significantly reduces the xenon poisoning effect, 
@@ -414,7 +412,7 @@
 
     Figure \ref{fig:single_keff} shows the results of the first scenario 
     (single load-follow) for k$_{eff}$. After a lifetime of operation at 
-    $\varepsilon$$_{Xe}$ = 0.536, single load-follow was attempted. In this 
+    $\varepsilon$$_{Xe}$ = 0.536, single load-following was attempted. In this 
     transient, for the base case geometry, the reactor can recover from the Xe 
     poisoning effect after $\varepsilon$$_{Xe}$ = 26.8\%. Generally, increasing 
     gas removal efficiency increases excess reactivity. If higher efficiency is 
@@ -422,7 +420,7 @@
     hours.
 
     As to the breeding ratio depicted in Figure \ref{fig:single_breed}, single 
-    load-follow transient results in a gradual decrease. Increasing the gas 
+    load-following transient results in a gradual decrease. Increasing the gas 
     removal efficiency slightly lowers the breeding ratio during the 
     load-follow.
 
@@ -431,7 +429,7 @@
     $\beta$$_{eff}$ fluctuates in a narrow range due to the statistical 
     deviation.
 
-    We also explored multiple consecutive load-follow transients causing sharp 
+    We also explored multiple consecutive load-following transients causing sharp 
     changes in salt composition. As can be clearly seen in Figure 
     \ref{fig:double_keff}, k$_{eff}$ begins fluctuating with Xe buildup and 
     burndown period. We understand from the result that to keep the reactor 
@@ -439,7 +437,7 @@
     required (corresponds in base case geometry to K$_{L}$ $>$ 25 ft/hr = 2.117 
     mm/s).
 
-    With the same load-follow period, we increased the number of transients. We 
+    With the same load-following period, we increased the number of transients. We 
     saw from Figure \ref{fig:triple_keff} that a higher gas removal efficiency 
     (at least $\varepsilon$$_{Xe}$ = 76.9\% or K$_{L}$ $>$ 50 ft/hr = 4.233 
     mm/s) is needed to keep the reactor stable. Therefore, these results 
@@ -505,13 +503,12 @@
         \label{fig:triple_keff}
     \end{figure}
 
-\newpage
 \FloatBarrier
 
 \subsubsection{Second Scenario}
 
-    Unlike the previous load-follow transients, in this part, we examined short 
-    period load-follow transients (second scenario) and implemented four 
+    Unlike the previous load-following transients, in this part, we examined short 
+    period load-following transients (second scenario) and implemented four 
     consecutive power ramps. As can be seen in Figure \ref{fig:quadro_keff}, we 
     saw a quick recovery from shutdown even with low gas removal efficiency.
 
@@ -527,13 +524,12 @@
         \label{fig:quadro_keff}
     \end{figure}
 
-\newpage
 \FloatBarrier
 
 \subsection{Sparging System}
 
     The results of the previous section directly pointed to a sparging system 
-    design adaptable to different load-follow scenarios. This system design 
+    design adaptable to different load-following scenarios. This system design 
     should cover a wide range of efficiency as high as 80\% (corresponds to the 
     triple load-follow). We will, therefore, separately handle the sparger and 
     separator designs in this context.
@@ -590,7 +586,6 @@
         \label{fig:binary_eff_sparger}
     \end{figure}
 
-\newpage
 \FloatBarrier
 
 \subsubsection{Separator Design}
@@ -656,17 +651,16 @@
     \label{fig:binary_eff_separator}
 \end{figure}
 
-\newpage
 \FloatBarrier
 
 \section{Conclusion}
 
-    In short, MSBR can, without difficulty, operate under load follow transient 
+    In short, \gls{MSBR} can, without difficulty, operate under load follow transient 
     with low gas removal efficiency, unless the shutdown period is too long, 
     typically greater than 4 hours. Recovery time depends directly on gas 
-    removal efficiency and load-follow period. From the results of the first 
+    removal efficiency and load-following period. From the results of the first 
     part, we would need an adjustable sparger/separator design to achieve 
-    sufficient gas removal for all kinds of load-follow scenarios.
+    sufficient gas removal for all kinds of load-following scenarios.
 
     From the binary effects of the design parameters of sparger and separator, 
     each design parameter has no relation with the other parameters, acting 
@@ -735,8 +729,8 @@
 
     To sum up, the main findings in this milestone are: (i) TAP can do 
     load-following without gas removal and safety parameters remained almost 
-    constant, (ii) MSBR needs gas removal for the load-following but very high 
+    constant, (ii) \gls{MSBR} needs gas removal for the load-following but very high 
     separation efficiency is unnecessary, (iii) We need an adaptable sparging 
     design so that a sufficient gas removal is achievable for all kinds of 
-    load-follow scenarios, and (iv) design parameters are very limited by the 
+    load-following scenarios, and (iv) design parameters are very limited by the 
     flow dynamics and core requirements.
