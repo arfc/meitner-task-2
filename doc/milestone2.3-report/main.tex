@@ -28,6 +28,7 @@
             \item analysed system sensitivity to varying removal efficiency 
                     over a wide range established by Task 1,
             \item and determined bounding approaches to smart gas removal regulation.
+    \end{itemize}
 
 \section{Milestone objectives}
 
@@ -41,7 +42,7 @@
     \end{quotation}
 
     This milestone has been completed through the addition of a sparging system 
-    package to the existing Saltproc version. In this document, we will discuss 
+    package to the latest release of SaltProc. In this document, we will discuss 
     the results of the sensitivity analysis and demonstrate a prototype design 
     for the Xe removal system, concerning design and safety margins, as well as 
     key parameters for improved performance.
@@ -66,13 +67,14 @@
 The following sections describe the software tools supporting these steps.
 \subsection{Saltproc}
 
-    We used the Saltproc \cite{rykhlevskii_saltproc_2018} for online 
-    reprocessing system modeling. The tool, as shown in Figure 
-    \ref{fig:scheme}, was developed for online reprocessing system modeling and 
-    demonstrated/validated for TAP and MSBR designs. It has a full capability 
-    of simulating fueling strategy and core geometry changes during operation. 
-    The SaltProc provides fuel composition to reactor multiphysics task. 
-    Details of the code were given in Milestone 2.1 Report 
+    This task utilized the Saltproc tool \cite{rykhlevskii_saltproc_2018} 
+                    designed as a part of this project for online 
+    reprocessing system modeling. SaltProc, as shown in Figure 
+    \ref{fig:scheme},
+    was demonstrated for the TAP and MSBR designs. It can capably simulate 
+                    fueling strategy and core geometry changes during operation. 
+    The SaltProc tool provides fuel composition to reactor multiphysics task. 
+    Details of the code were given in the Milestone 2.1 Report 
     \cite{rykhlevskii_milestone_2019}.
 
     \begin{figure}[h]
@@ -89,7 +91,7 @@ The following sections describe the software tools supporting these steps.
     to assess the reactor performance at different load-following scenarios when 
     the sparging system is enabled. The code provides optimization tools 
     including sensitivity analysis packages for miscellaneous design problems. 
-    With Dakota group's words:
+    The Dakota development team describes the tool, thus:
 
     \begin{quote}
         "In addition to its state-of-the-art optimization methods, Dakota
@@ -100,26 +102,26 @@ The following sections describe the software tools supporting these steps.
         optimization, and optimization under uncertainty."
     \end{quote}
 
-    We performed a multidimensional parameter study by computing response data 
+    We performed a multidimensional parameter analysis by computing response data 
     sets for an n-dimensional hypergrid formed by sensitivity parameters. Each 
-    sensitivity parameter is partitioned into equally-spaced intervals between 
+    sensitivity parameter was partitioned into equally-spaced intervals between 
     its upper and lower bounds. Each combination was then simulated by Saltproc 
     software coupled to Serpent.
 
 \subsection{Serpent}
 
-    Serpent software \cite{Lep2014} was used for Monte-Carlo based neutron 
-    transport calculations. Serpent model with corresponding Serpent's 
-    parameters stands on the MSBR design described in various reports prepared 
+    The Serpent software \cite{Lep2014} was used for Monte-Carlo-based neutron 
+    transport calculations. Serpent model with corresponding Serpent 
+    parameters is based on the MSBR design described in various reports prepared 
     for ARPA-E MEITNER Program \cite{rykhlevskii_fuel_2019, 
     rykhlevskii_modeling_2019, rykhlevskii_fuel_2020}.
 
 \FloatBarrier
 
-\section{Sparging Design}
+\section{Sparging System Design}
 
-    A sparging system is composed of two separate components: Sparger (bubble 
-    generator) and Separator (bubble separator). The role of the sparger is to 
+    A sparging system is composed of two separate components: a Sparger (bubble 
+    generator) and a Separator (bubble separator). The role of the sparger is to 
     generate He bubbles in which noble gases diffuse while the role of the 
     separator is to remove bubbles from fuel salt which carry volatile noble 
     gases like Xe and Kr. The efficiency of the sparger component is expressed 
@@ -134,13 +136,13 @@ The following sections describe the software tools supporting these steps.
         \begin{center}
             \includegraphics[width=0.8\textwidth]{bubble_separator_main.png}
         \end{center}
-        \caption{Fission product removal system: Sparging}
+            \caption{Simple Sparging System diagram. Figure by Jiaqi Chen.}
         \label{fig:sparging}
     \end{figure}
 
 \subsection{Sparger Design}
 
- As illustrated in Figure \ref{fig:sparging}, sparger includes a contactor 
+ As illustrated in Figure \ref{fig:sparging}, the sparger includes a contactor 
  section and a long pipe with a contactor cross-section of $A_c = \pi\times 
  d^2/4$ and length of $L$. Gas removal efficiency in the bubble generator is 
  defined based on Peebles \emph{et al.} in 
@@ -252,7 +254,8 @@ The following sections describe the software tools supporting these steps.
         \begin{center}
             \includegraphics[width=\textwidth]{bubble_separator_detailed.png}
         \end{center}
-        \caption{Entrainment Separator}
+            \caption{Entrainment Separator (Figure reproduced from 
+            \cite{peebles_removal_1968,gabbard_development_1979}).}
         \label{fig:bubble_sprt}
     \end{figure}
 
@@ -261,7 +264,7 @@ The following sections describe the software tools supporting these steps.
             \includegraphics[width=1.1\textwidth]{sep_eff_eq_1.png}
             \includegraphics[width=0.7\textwidth]{sep_eff_eq_2.png}
         \end{center}
-        \caption{Regression model from Milestone 1.2 report}
+        \caption{Regression model from Brooks, Chen, Task 1.2.}
         \label{fig:reg_model}
     \end{figure}
 

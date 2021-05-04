@@ -1,4 +1,4 @@
-manuscript = title
+manuscript = uiuc-arfc-2021-01
 references = $(wildcard *.bib)
 latexopt   = -halt-on-error -file-line-error
 
